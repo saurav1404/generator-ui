@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71" height="57" viewBox="0 0 71 57">
+    <defs>
+        <circle id="b" cx="2" cy="2" r="2"/>
+        <filter id="a" width="3500%" height="3500%" x="-1700%" y="-1300%" filterUnits="objectBoundingBox">
+            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="20"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0823529412 0 0 0 0 0.0823529412 0 0 0 0 0.0941176471 0 0 0 0.04 0"/>
+        </filter>
+        <circle id="d" cx="9" cy="2" r="2"/>
+        <filter id="c" width="3500%" height="3500%" x="-1700%" y="-1300%" filterUnits="objectBoundingBox">
+            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="20"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0823529412 0 0 0 0 0.0823529412 0 0 0 0 0.0941176471 0 0 0 0.04 0"/>
+        </filter>
+        <circle id="f" cx="16" cy="2" r="2"/>
+        <filter id="e" width="3500%" height="3500%" x="-1700%" y="-1300%" filterUnits="objectBoundingBox">
+            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="20"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0823529412 0 0 0 0 0.0823529412 0 0 0 0 0.0941176471 0 0 0 0.04 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(26.333 10.333)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#201647" xlink:href="#b"/>
+        </g>
+        <g transform="translate(26.333 10.333)">
+            <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+            <use fill="#201647" xlink:href="#d"/>
+        </g>
+        <g transform="translate(26.333 10.333)">
+            <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+            <use fill="#201647" xlink:href="#f"/>
+        </g>
+    </g>
+</svg>

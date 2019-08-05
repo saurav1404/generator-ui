@@ -1,0 +1,30 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "jsRules": true,
+  "rules": {
+    "trailing-comma": false,
+    "quotemark": [true, "single", "jsx-single", "avoid-escape", "avoid-template"],
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "interface-name": [true, "never-prefix"],
+    "interface-over-type-literal": false,
+    "object-literal-sort-keys": false,
+    "max-line-length": false,
+    "jsx-wrap-multiline": true,
+    "variable-name": [true,
+      "allow-leading-underscore"
+    ],
+    "semicolon": [true,
+      "always",
+      "ignore-interfaces",
+      "ignore-bound-class-methods"
+    ],
+    "jsx-boolean-value": "never"
+  },
+  "linterOptions": {
+    "exclude": [
+        "*.js"
+    ]
+  }
+}

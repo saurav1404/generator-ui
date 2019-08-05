@@ -1,0 +1,16 @@
+.header h1 {
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  padding: 10px;
+  margin: 20px 0;
+  border-bottom: 1px solid #f6f6f6;
+  text-align: center;
+  justify-content: center;
+}
+
+.menu a {
+  padding: 6px 10px;
+}

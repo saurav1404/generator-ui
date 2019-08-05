@@ -1,0 +1,456 @@
+.app {
+  font-family: sans-serif;
+  font-size: 14px;
+  width: 600px;
+  margin: 20px auto;
+}
+
+.app h1, h2, h3 {
+  color: #777;
+  font-family: "American Typewriter", serif;
+}
+
+.app h2 {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-info .legal {
+  font-size: 12px;
+}
+
+.user-info .user {
+  color: #bbb;
+  font-size: 12px;
+}
+
+.user-info.dropdown-toggle::after {
+  margin-left: 20px;
+}
+
+.navbar-nav {
+  margin: auto;
+}
+.pull-right{
+  width:100%;
+}
+.pull-right .mr-auto{
+  float: right;
+}
+.main-menu .navbar-light .navbar-nav .nav-link {
+  color: #201647;
+  font-weight: 900;
+  font-size: 14px;
+  padding-bottom: 25px;
+  padding-top: 23px;
+  padding-left: 27px;
+  position: relative;
+}
+
+.main-menu .navbar-light .navbar-nav .nav-link img {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+
+}
+
+.main-menu .navbar-light .navbar-nav .nav-link span {
+  letter-spacing: .8px;
+}
+
+.main-menu .navbar.navbar-expand-lg.navbar-light{
+  padding-bottom: 0;
+} 
+
+.main-menu .nav-item{
+  margin-left: 3rem;
+ 
+}
+
+
+.main-menu .my-2.my-lg-0 .nav-item {
+  margin-left: 1rem;
+}
+
+.main-menu .navbar .navbar-brand {
+  margin-right: 10%;
+}
+
+
+.main-menu .navbar .navbar-brand img{
+  width: auto;
+  height: 30px;
+  vertical-align: sub;
+}
+ 
+.nav-link i {
+  margin-right: 5px;
+}
+.notification-menu {
+  position: relative;
+  cursor: pointer;
+}
+.notification-menu .bell-icon {
+  font-size: 20px;
+}
+
+.notification-menu .notification-count{
+  position: absolute;
+  background-color: #fa5d87;
+  color: #fff;
+  width: 14px;
+  height: 14px;
+  font-size: 8px;
+  padding: 0px;
+  right: -5px;
+  border-radius: 50%;
+  top: -4px;
+  text-align: center;
+  /* font-weight: bold; */
+  border:solid 1px#fff;
+  line-height:14px;
+}
+
+.notification-menu .notification-count.nf-count-3{
+  width: 20px;
+  right: -10px;
+}
+
+.joe-gardner-74378-unsplash {
+  width: 43px;
+  height: 43px;
+}
+.Mask {
+  width: 43px;
+  height: 43px;
+  background-color: #d8d8d8;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  font-weight: 900;
+  font-stretch: normal;
+  color: #6943fb;
+}
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: solid 1px #ececf3;
+  z-index: 99;
+}
+
+.nav-item.active{
+  border-bottom: 2px solid #6943fb;
+}
+
+.nav-item.active .nav-link img{
+  -webkit-filter: brightness(3);
+}
+
+.messgae-icon{
+  top: 3px;
+  width: 18px;
+  height: 14px;
+}
+
+.user-profile-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -6px;
+  cursor: pointer;
+}
+
+
+.notification .dropdown-menu{
+  right: 0;
+  left: auto;
+}
+
+.notification .main.dropdown-menu{
+  min-width: 400px;
+  max-width: 400px;
+  box-shadow: 0 8px 10px 0 rgba(21, 21, 24, 0.04);
+}
+
+.user-container .dropdown-menu{
+  right: 0;
+  left: auto;
+}
+
+.notification-header-container{
+  padding: 10px 20px;
+}
+
+.notification-header-container .header{
+  font-size: 18px;
+  font-weight: 900;
+  color: #201647;
+  display: inline-block;
+}
+
+.notification-header-container  .nav-item.dropdown{
+  display: inline-block;
+  align-items: right;
+  right: 0;
+  position: absolute;
+}
+
+.notification-header-container .setting-icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 44px;
+  background-color: #ffffff;
+  border: solid 1px #ececf3;
+  text-align: center;
+  cursor: pointer;
+  font-size: 19px;
+  font-weight: bold;
+  line-height: normal;
+  color: #6943fb;
+  margin-right: 20px;
+  margin-top:8px;
+}
+
+
+
+.notification .img-container{
+  position: relative;
+  top: 3px;
+}
+
+.notification .img-container .company-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px 0 rgba(21, 21, 24, 0.04);
+  z-index: 1;
+  position: relative;
+  
+}
+
+.notification .img-container .inbox-user-img{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  z-index: 0;
+  position: relative;
+  left: -14px;
+  box-shadow: 0 4px 6px 0 rgba(21, 21, 24, 0.04);
+}
+
+.notification .img-container .inbox-user-img1{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  z-index: 0;
+  position: relative;
+  left: 15px;
+  box-shadow: 0 4px 6px 0 rgba(21, 21, 24, 0.04);
+  margin-right: 40px;
+}
+
+.notification .notification-container .notification-msg{
+  
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  text-overflow: ellipsis;
+  height: auto;
+  line-height: 1.5em;
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -o-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  white-space: pre-wrap;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}
+
+.notification-item-container{
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.notification .notification-container{
+  cursor: pointer;
+}
+
+.notification-item-container .dropdown-item{
+  padding: unset;
+  /* cursor: pointer; */
+}
+.notifi-items{
+  border-bottom: solid 1px #ececf3;
+  margin: 15px;
+}
+
+.notification-item-container .last-active {
+  margin-top: 5px;
+}
+
+.notification  .dropdown-item.active, .dropdown-item:active
+{
+  color: #201647;
+  background-color: unset;
+}
+
+.notification .dropdown-item:hover {
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+.notification .dropdown-item:hover  .notification-msg{
+  color: #6943fb;
+}
+
+.notification .batch-icon {
+  background-color: #fa5d87;
+  border-radius: 50%;
+  padding: 4px;
+  margin-right: 10px;
+  top: -12px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.batch-icon.read {
+  background-color: unset;
+}
+
+.no-notification-item{
+  padding: 20px;
+  text-align: center;
+}
+
+/*alignment changes start*/
+.main-menu .notification-menu .icon {
+  width: 18.9px;
+  height: 17.7px;
+  position: relative;
+  top: -2px;
+}
+.notification > .notification-menu > .icon {
+  width: 17px;
+  height: 20px;
+}
+.notification-header-container .setting-icon > span {
+  top: -2px;
+}
+.navbar-toggler {
+  padding: 0;
+  font-size: inherit;
+  line-height: 0;
+  background-color: inherit;
+  border: 0;
+  border-radius: 0;
+}
+.navbar-toggler .icon-bar {
+  width: 15px;
+  height: 2px;
+  background: #211647;
+  display: block;
+  border-radius: 50px;
+}
+.navbar-toggler .icon-bar:nth-child(2) {
+  width: 20px;
+  margin: 7px 0;
+}
+/*alignment changes end*/
+
+@media screen and (min-width:1260px) {
+     /* .main-menu .nav-item{
+      margin-left: 7rem;
+    } */
+}
+
+@media only screen and (max-width:1259px) {
+    .main-menu .nav-item{
+      margin-left: 2rem;
+    }
+}
+
+@media only screen and (max-width:999px) {
+    .main-menu .nav-item{
+      margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+  .main-menu .navbar-light .navbar-toggler {
+    position: absolute;
+    left: 20px;
+    top: 12.5px;
+    cursor: pointer;
+  }
+  .main-menu .navbar .navbar-brand img {
+    top: -4px;
+    position: relative;
+  }
+  .main-menu .navbar .navbar-brand {
+    margin: auto;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+  .notification-menu .notification-count {
+    left: 7px;
+  }
+
+  .nav-item.dropdown.dropbottom.user-container{
+    margin-top: 16px;
+    margin-left: 13px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-menu .nav-item{
+      margin-left: 0;
+    }
+
+    .main-menu .navbar.navbar-expand-lg.navbar-light{
+      justify-content: left;
+    }
+
+    .main-menu.container-fluid {
+      padding: 0;
+    }
+
+    .main-menu .my-2.my-lg-0 .nav-item {
+      margin-left: 0;
+    }  
+    .notification-menu .notification-count {
+      left: 6px;
+    }
+    .nav-item.dropdown.dropbottom.user-container{
+      margin-top: 16px;
+    }
+}
+
+@media only screen and (max-width:499px) {
+    /* .main-menu .navbar-light .navbar-toggler {
+          margin-right: 28%;
+    } */
+}
+
+.page{
+  margin-top: 80px;
+}
