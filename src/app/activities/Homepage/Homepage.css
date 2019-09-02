@@ -5,3 +5,15 @@
 .homepage .page{
   margin-top: 80px;
 }
+.card-header h3{
+  display: inline;
+}
+.card-header .card-setting{
+  float: right;
+}
+.card-header .card-setting button i{
+  vertical-align: text-top;
+}
+.setting-group{
+  margin-bottom: 10px;
+}
