@@ -18,5 +18,5 @@ So enable linting, ensure tests are passing and coverage >= 90%.
 
 # To mock data
 
-npm install -g mock-json-server
-mock-json-server data/data.json --port=3001
+- npm install -g mock-json-server
+- mock-json-server data/data.json --port=3002
