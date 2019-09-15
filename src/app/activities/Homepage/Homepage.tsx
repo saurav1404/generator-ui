@@ -92,12 +92,25 @@ export default function Homepage(props: HomepageProps) {
       var getApi = value['get'];
       if(getApi.tags.length > 0){
         if(getApi.responses[200]){
-          let reference = getApi.responses[200].schema.$ref;
+          let reference = getApi.responses[200].schema.$ref || (getApi.responses[200].schema.items && getApi.responses[200].schema.items.$ref);
           if(reference){
             let parts = reference.split(/[[\]]{1,2}/);
             parts.length--;
             let definition = _.last(parts);
-            if(!_.includes(["Boolean", "Int32", "Guid", "String", "Decimal", "Object", undefined, "", ], definition)){
+            if(definition){
+              if(!_.includes(["Boolean", "Int32", "Guid", "String", "Decimal", "Object", undefined, "", ], definition)){
+                apiList.push({
+                  id: id,
+                  parameters: getApi.parameters,
+                  definition: definition,
+                  url: getApi.tags[0]
+                });
+                id++;
+                setTimeout(() => setApi(apiList) ,1000);
+              }
+            }else{
+              let parts = reference.split('/');
+              definition = _.last(parts);
               apiList.push({
                 id: id,
                 parameters: getApi.parameters,
@@ -183,10 +196,10 @@ export default function Homepage(props: HomepageProps) {
         title: value,
         visible: false,
         label: '',
-        type: ''
+        type: '',
+        dataIndex: value
       }
       obj.key = obj.id;
-      obj.dataIndex = obj.id;
       columnList.push(obj);
       setTimeout(() => setColumn(columnList) ,1000);
       let index = _.findIndex(json.columns, function(o){ return o.title === obj.title });
@@ -211,11 +224,34 @@ export default function Homepage(props: HomepageProps) {
 
   function saveGridInfo(){
     json.columns = columns;
-    configList.push(json);
-    setTimeout(() => setConfig(configList) ,1000);
-    localStorage.setItem('config', JSON.stringify(configList));
+    if(config){
+      _.assign(configList, config);
+      var existingConfigIndex = _.findIndex(config, function(o){ return o.id === json.id});
+      if(existingConfigIndex >= 0){
+        configList[existingConfigIndex] = json;
+        setTimeout(() => setConfig(configList) ,1000);
+        localStorage.setItem('config', JSON.stringify(configList));
+      }else{
+        configList.push(json);
+        setTimeout(() => setConfig(configList) ,1000);
+        localStorage.setItem('config', JSON.stringify(configList));
+      }
+    }else{
+      configList.push(json);
+      setTimeout(() => setConfig(configList) ,1000);
+      localStorage.setItem('config', JSON.stringify(configList));
+    }
     setVisible(false);
   };
+
+  function saveConfig(){
+    let config = JSON.parse(localStorage.getItem('config'));
+    if(config){
+      axios.put(`https://api.myjson.com/bins/pr03x`, config).then(function(res){
+        console.log(res);
+      });
+    }
+  }
 
   function renderTitle() {
     return (
@@ -229,6 +265,7 @@ export default function Homepage(props: HomepageProps) {
     const {} = props;
     return (
       <div className='page-header-extra'>
+      <Button type="primary" onClick={saveConfig} style={{marginRight: '10px'}}>Save</Button>
         <Select defaultValue="Select Menu" style={{ width: 250 }} onChange={handleMenuChange}>
           {menus &&
             menus.map((menu, index) => {
