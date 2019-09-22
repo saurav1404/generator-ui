@@ -47,7 +47,7 @@ export default function Homepage(props: HomepageProps) {
   useEffect(() => {
     getMenu();
     getApiEndPoint();
-    checkConfig();
+    getConfig();
   }, [props]);
 
   function getMenu(){
@@ -56,11 +56,17 @@ export default function Homepage(props: HomepageProps) {
     });
   };
 
-  function checkConfig(){
-    let config = JSON.parse(localStorage.getItem('config'));
-    if(config){
-      setTimeout(() => setConfig(config), 1000);
-    }
+  function getConfig(){
+    axios({
+      url: `http://localhost:5000/api/config`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => {
+        let response = res.data === null ? [] : res.data;
+        setTimeout(() => setConfig(response), 1000);
+    });
   }
 
   function getApiEndPoint(){
@@ -135,7 +141,7 @@ export default function Homepage(props: HomepageProps) {
 
   function handleMenuChange(value){
     let menu = _.find(menus, function(o){return o.id === value});
-    if(config){
+    if(config.length > 0){
       var selectedConfig = _.find(config, function(o){return o.id === menu.id});
       if(selectedConfig){
         menu = selectedConfig;
@@ -167,7 +173,7 @@ export default function Homepage(props: HomepageProps) {
 
   function openSetting(){
     setVisible(true);
-    if(config){
+    if(config.length > 0){
       var selectedConfig = _.find(config, function(o){return o.id === json.id});
       if(selectedConfig){
         setTimeout(() => setSelectedUrl(selectedConfig.properties.api.id) ,1000);
@@ -224,33 +230,50 @@ export default function Homepage(props: HomepageProps) {
 
   function saveGridInfo(){
     json.columns = columns;
-    if(config){
+    if(config.length > 0){
       _.assign(configList, config);
       var existingConfigIndex = _.findIndex(config, function(o){ return o.id === json.id});
       if(existingConfigIndex >= 0){
         configList[existingConfigIndex] = json;
         setTimeout(() => setConfig(configList) ,1000);
-        localStorage.setItem('config', JSON.stringify(configList));
+        updateConfig(json);
       }else{
         configList.push(json);
         setTimeout(() => setConfig(configList) ,1000);
-        localStorage.setItem('config', JSON.stringify(configList));
+        saveConfig(json);
       }
     }else{
       configList.push(json);
       setTimeout(() => setConfig(configList) ,1000);
-      localStorage.setItem('config', JSON.stringify(configList));
+      saveConfig(json);
     }
     setVisible(false);
   };
 
-  function saveConfig(){
-    let config = JSON.parse(localStorage.getItem('config'));
-    if(config){
-      axios.put(`https://api.myjson.com/bins/pr03x`, config).then(function(res){
-        console.log(res);
-      });
-    }
+  function updateConfig(config: any){
+    axios({
+        url: `http://localhost:5000/api/config/${config.id}`,
+        method: 'PUT',
+        data: config,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }).then(function(res){
+      getConfig();
+    });
+  }
+
+  function saveConfig(config: any){
+    axios({
+      url: `http://localhost:5000/api/config/`,
+      method: 'POST',
+      data: config,
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(function(res){
+      getConfig();
+    });
   }
 
   function renderTitle() {
