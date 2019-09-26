@@ -51,8 +51,14 @@ export default function Homepage(props: HomepageProps) {
   }, [props]);
 
   function getMenu(){
-    axios.get(`http://localhost:3002/menu`).then(res => {
-      findNodeMenus(res.data.data);
+    axios({
+      url: `http://localhost:5000/api/menu`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => {
+      findNodeMenus(res.data);
     });
   };
 
@@ -70,9 +76,15 @@ export default function Homepage(props: HomepageProps) {
   }
 
   function getApiEndPoint(){
-    axios.get(`http://localhost:3002/swagger`).then(res => {
-      findApi(res.data.data);
-    })
+    axios({
+      url: `http://localhost:5000/api/swagger`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((res) => {
+      findApi(res.data);
+    });
   };
 
   function findNodeMenus(data: any){
