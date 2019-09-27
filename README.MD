@@ -15,8 +15,3 @@ Example: `--require ts-node/register -r tsconfig-paths/register --file test/setu
 
 Before commit or push the linter and tests are run. If something fails the action is aborted.
 So enable linting, ensure tests are passing and coverage >= 90%.
-
-# To mock data
-
-- npm install -g mock-json-server
-- mock-json-server data/data.json --port=3002
