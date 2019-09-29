@@ -16,7 +16,7 @@ export function Header() {
             <span className='icon-bar'/>
           </div>
           <a className='navbar-brand' href='/'>
-            Some Site
+            ERP Generator
           </a>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             {/* <Menu mode='horizontal'>

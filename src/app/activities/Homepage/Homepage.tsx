@@ -288,10 +288,27 @@ export default function Homepage(props: HomepageProps) {
     });
   }
 
+  function generateFile(){
+    let componentName = _.upperFirst(_.camelCase(json.title));
+    let data = {
+      "commands": ["cd..", "cd generator-react", "yo erp:ngc "+componentName+" --component"]
+    }
+    axios({
+      url: `http://localhost:5000/api/command/`,
+      method: 'POST',
+      data: data,
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(function(res){
+      
+    });
+  }
+
   function renderTitle() {
     return (
       <div className='page-header'>
-        <h2>ERP Generator</h2>
+        
       </div>
     );
   };
@@ -300,7 +317,6 @@ export default function Homepage(props: HomepageProps) {
     const {} = props;
     return (
       <div className='page-header-extra'>
-      <Button type="primary" onClick={saveConfig} style={{marginRight: '10px'}}>Save</Button>
         <Select defaultValue="Select Menu" style={{ width: 250 }} onChange={handleMenuChange}>
           {menus &&
             menus.map((menu, index) => {
@@ -320,6 +336,7 @@ export default function Homepage(props: HomepageProps) {
             <div className='card-header'>
               <h3>{json.title}</h3>
               <div className="card-setting">
+                <Button type="primary" onClick={generateFile} style={{marginRight: '10px'}}>Generate</Button>
                 <Button type="primary" shape="circle" icon="setting" onClick={openSetting}/>
               </div>
             </div>
